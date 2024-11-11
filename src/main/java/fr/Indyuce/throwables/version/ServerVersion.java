@@ -17,7 +17,7 @@ public class ServerVersion {
     // used before 1.20 release
     public ServerVersion(String bukkitVersion) {
         version = bukkitVersion.split("-")[0];
-        String[] split = version.substring(1).split("\\.");
+        String[] split = version.substring(1).split(".");
         integers = new int[]{Integer.parseInt(split[0]), Integer.parseInt(split[1])};
     }
 
