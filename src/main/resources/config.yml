@@ -7,14 +7,14 @@ update-notify: true
 default-handlers:
 
   IRON_SWORD:
-    type: default_sword
+    throwable-type: default_sword
     cooldown: 4
     damage: 4
     boomerang: true
 
 
   IRON_AXE:
-    type: default_axe
+    throwable-type: default_axe
     cooldown: 5
     damage: 7
 
