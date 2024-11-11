@@ -44,6 +44,7 @@ public class Throwables extends JavaPlugin {
         //version = new ServerVersion(Bukkit.getServer().getClass());
         // Example value: 1.20.1-R0.1-SNAPSHOT (Bukkit.getServer().getBukkitVersion())
         //String version = Bukkit.getServer().getBukkitVersion().split("-")[0];
+        Bukkit.getServer().getConsoleSender().sendMessage("ServerVersion class Bukkit.getServer().getBukkitVersion() output: " + Bukkit.getServer().getBukkitVersion());
         version = new ServerVersion(Bukkit.getServer().getBukkitVersion());
 
         // Hex color support
