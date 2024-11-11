@@ -7,10 +7,16 @@ public class ServerVersion {
     private final String version;
     private final int[] integers;
 
+    /*/ used before 1.20 release
     public ServerVersion(Class<?> clazz) {
         version = clazz.getPackage().getName().replace(".", ",").split(",")[3];
         String[] split = version.substring(1).split("\\_");
         integers = new int[]{Integer.parseInt(split[0]), Integer.parseInt(split[1])};
+    }*/
+
+    // used before 1.20 release
+    public ServerVersion(String bukkitVersion) {
+        version = bukkitVersion.split("-")[0];
     }
 
     /**
