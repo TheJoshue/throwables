@@ -40,8 +40,10 @@ public class Throwables extends JavaPlugin {
         // Metrics
         new Metrics(this);
 
-        // Find plugin version
-        version = new ServerVersion(Bukkit.getServer().getClass());
+        // Find plugin version - used before 1.20 release
+        //version = new ServerVersion(Bukkit.getServer().getClass());
+        // Example value: 1.20.1-R0.1-SNAPSHOT (Bukkit.getServer().getBukkitVersion())
+        String bukkitVersion = Bukkit.getServer().getBukkitVersion().split("-")[0];
 
         // Hex color support
         colorParser = version.isStrictlyHigher(1, 15) ? new HexColorParser() : new SimpleColorParser();
