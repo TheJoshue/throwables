@@ -1,5 +1,7 @@
 package fr.Indyuce.throwables.version;
 
+import org.bukkit.Bukkit;
+
 /**
  * Used to find the version of the server running the plugin
  */
@@ -15,10 +17,32 @@ public class ServerVersion {
     }*/
 
     // used before 1.20 release
-    public ServerVersion(String bukkitVersion) {
+    public ServerVersion(String bukkitVersion) {/*
         version = bukkitVersion.split("-")[0];
         String[] split = version.substring(1).split(".");
-        integers = new int[]{Integer.parseInt(split[0]), Integer.parseInt(split[1])};
+        integers = new int[]{Integer.parseInt(split[0]), Integer.parseInt(split[1])};*/
+
+        // Split the version at the first hyphen ("-") to separate the version part from any suffix
+        Bukkit.getServer().getConsoleSender().sendMessage("ServerVersion class bukkitVersion output: " + bukkitVersion);
+        String[] parts = bukkitVersion.split("-");
+        if (parts.length > 0) {
+            version = parts[0];  // Get the version part before the first "-"
+        } else {
+            // Handle the case where no "-" exists, meaning the version string is just the version number
+            version = bukkitVersion;
+        }
+
+        // Split the version string at the period (".") to get individual parts
+        String[] split = version.split("\\.");
+        if (split.length >= 2) {
+            integers = new int[]{
+                Integer.parseInt(split[0]),  // Major version
+                Integer.parseInt(split[1])   // Minor version
+            };
+        } else {
+            // Handle case where the version format is unexpected or incomplete
+            integers = new int[]{0, 0};  // Default to zero if format is incorrect
+        }
     }
 
     /**
