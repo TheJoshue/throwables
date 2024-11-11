@@ -27,7 +27,7 @@ public class Throwables extends JavaPlugin {
     public final ThrowablesAPI api = new ThrowablesAPI(this);
 
     public ColorParser colorParser;
-    //public ServerVersion version;
+    public ServerVersion version;
 
     @Override
     public void onEnable() {
@@ -43,7 +43,8 @@ public class Throwables extends JavaPlugin {
         // Find plugin version - used before 1.20 release
         //version = new ServerVersion(Bukkit.getServer().getClass());
         // Example value: 1.20.1-R0.1-SNAPSHOT (Bukkit.getServer().getBukkitVersion())
-        String version = Bukkit.getServer().getBukkitVersion().split("-")[0];
+        //String version = Bukkit.getServer().getBukkitVersion().split("-")[0];
+        version = new ServerVersion(Bukkit.getServer().getBukkitVersion());
 
         // Hex color support
         colorParser = version.isStrictlyHigher(1, 15) ? new HexColorParser() : new SimpleColorParser();
