@@ -5,9 +5,9 @@ package fr.Indyuce.throwables.version;
  */
 public class ServerVersion {
     private final String version;
-    /*/private final int[] integers;
+    private final int[] integers;
 
-    // used before 1.20 release
+    /*/ used before 1.20 release
     public ServerVersion(Class<?> clazz) {
         version = clazz.getPackage().getName().replace(".", ",").split(",")[3];
         String[] split = version.substring(1).split("\\_");
@@ -17,6 +17,8 @@ public class ServerVersion {
     // used before 1.20 release
     public ServerVersion(String bukkitVersion) {
         version = bukkitVersion.split("-")[0];
+        String[] split = version.substring(1).split("\\.");
+        integers = new int[]{Integer.parseInt(split[0]), Integer.parseInt(split[1])};
     }
 
     /**
